@@ -4,7 +4,7 @@ This library will be released shortly with more information.
 
 
 ## Copyright and License
-Copyright &copy; 2016 David Whitehead
+Copyright &copy; 2017 David Whitehead
 
 This project is licensed under the MIT License.
 
