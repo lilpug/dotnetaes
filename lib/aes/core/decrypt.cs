@@ -12,6 +12,7 @@ namespace DotNetAES
         //#######           Decryption Functions         #######
         //######################################################
            
+         
         public static T DecryptToType<T>(object data, object key, object IV)
         {
             //Checks we have the valid data for decrypting
@@ -26,6 +27,13 @@ namespace DotNetAES
             return DerializeFromBytes<T>(decryptedData);
         }
 
+        /// <summary>
+        /// Decrypts all the DataTable columns using the IV column and key supplied
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="ivColumnName"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static DataTable DecryptData(DataTable data, string ivColumnName, object key)
         {
             //Checks the table even has values before continuing
@@ -78,6 +86,14 @@ namespace DotNetAES
             return data;
         }
 
+        /// <summary>
+        /// Decrypts all the DataTable columns that are not in the ignore list
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="ivColumnName"></param>
+        /// <param name="key"></param>
+        /// <param name="ignoreColumns"></param>
+        /// <returns></returns>
         public static DataTable DecryptDataIgnore(DataTable data, string ivColumnName, object key, params string[] ignoreColumns)
         {
             //Checks the table even has values before continuing
@@ -144,6 +160,14 @@ namespace DotNetAES
             return data;
         }
 
+        /// <summary>
+        ///  Decrypts only the DataTable columns that are specified
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="ivColumnName"></param>
+        /// <param name="key"></param>
+        /// <param name="onlyColumns"></param>
+        /// <returns></returns>
         public static DataTable DecryptDataOnly(DataTable data, string ivColumnName, object key, params string[] onlyColumns)
         {
             //Checks the table even has values before continuing

@@ -10,25 +10,25 @@ namespace testing
     class Program
     {
         //This function checks the validation of the file encryption and decryption funcctions
-        private static bool FileEncryptionValidation()
+        private static bool FileEncryptionValidation(string filePath)
         {
             //Generates a key and IV for testing purposes
             string key = AES.CreateStringKey();
             string iv = AES.CreateStringIV();
-
-            string firstFile = @"C:\logo.jpg";
+            
+            string directory = Path.GetDirectoryName(filePath);
 
             //Reads the first file data like normal
-            byte[] file = File.ReadAllBytes(firstFile);
+            byte[] file = File.ReadAllBytes(filePath);
             
             //Saves the loaded file data as an encrypted file
-            var encryptedCheck = AES.SaveEncryptedFile($@"C:\1_encrypted.{Path.GetExtension(firstFile)}", file, key, iv);
+            var encryptedCheck = AES.SaveEncryptedFile($@"{directory}\1_encrypted.{Path.GetExtension(filePath)}", file, key, iv);
 
             //Loads the encrypted files data
-            byte[] encryptedFile = File.ReadAllBytes($@"C:\1_encrypted.{Path.GetExtension(firstFile)}");
+            byte[] encryptedFile = File.ReadAllBytes($@"{directory}\1_encrypted.{Path.GetExtension(filePath)}");
 
             //Saves the loaded encrypted data into a decrypted file
-            var decryptedCheck = AES.SaveDecryptedFile($@"C:\2_decrypted.{Path.GetExtension(firstFile)}", encryptedFile, key, iv);
+            var decryptedCheck = AES.SaveDecryptedFile($@"{directory}\2_decrypted.{Path.GetExtension(filePath)}", encryptedFile, key, iv);
 
             return (encryptedCheck && decryptedCheck);
         }
@@ -223,7 +223,9 @@ namespace testing
 
         static void Main(string[] args)
         {
-            Console.WriteLine($"File Success: {FileEncryptionValidation()}");
+            string filePath = @"C:\logo.jpg";
+
+            Console.WriteLine($"File Success: {FileEncryptionValidation(filePath)}");
             Console.WriteLine($"String Success: {StringEncryptionValidation()}");
             Console.WriteLine($"Bytes Success: {StringByteEncryptionValidation()}");
             Console.WriteLine($"DataTables Success: {DataTableEncryptionValidation()}");

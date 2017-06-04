@@ -30,7 +30,7 @@ namespace DotNetAES
         }
 
         //This function deserialize a byte array to a specified type
-        public static T DerializeFromBytes<T>(byte[] data)
+        private static T DerializeFromBytes<T>(byte[] data)
         {            
             //Checks if any data has been supplied
             if (data != null && data.Length > 0)
