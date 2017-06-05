@@ -1,9 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.IO.Compression;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Cryptography;
 
 namespace DotNetAES
 {
@@ -13,7 +9,12 @@ namespace DotNetAES
         //#######    GZIP Compression And Decompression Functions    #######
         //##################################################################
 
-        public static byte[] Decompress(byte[] data)
+        /// <summary>
+        /// Decompresses the supplied byte array from GZIP format
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        private static byte[] Decompress(byte[] data)
         {
             //Opens a memorystream with the input data
             using (MemoryStream inputMS = new MemoryStream(data))
@@ -34,7 +35,12 @@ namespace DotNetAES
             }
         }
 
-        public static byte[] Compress(byte[] data)
+        /// <summary>
+        /// Compresses the supplied byte array in GZIP format
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        private static byte[] Compress(byte[] data)
         {   
             //Opens a memorystream
             using (MemoryStream memoryStream = new MemoryStream())

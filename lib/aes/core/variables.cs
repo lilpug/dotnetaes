@@ -2,11 +2,15 @@
 namespace DotNetAES
 {
     public static partial class AES
-    {
-        //Stores the length of the key requirement
+    {   
+        /// <summary>
+        /// Stores the length of the key requirement
+        /// </summary>
         const int theKeySize = 256;
-
-        //Stores the ciphermode to use in AES: CBC
+        
+        /// <summary>
+        /// Stores the ciphermode to use in AES: CBC
+        /// </summary>
         const CipherMode cipherMode = CipherMode.CBC;
     }
 }

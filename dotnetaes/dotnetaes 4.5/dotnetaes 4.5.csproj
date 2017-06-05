@@ -16,20 +16,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\compiled\debug\4.5\</OutputPath>
+    <OutputPath>..\..\compiled\debug\net45\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\compiled\debug\4.5\dotnetaes.xml</DocumentationFile>
+    <DocumentationFile>..\..\compiled\debug\net45\dotnetaes.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\compiled\release\4.5\</OutputPath>
+    <OutputPath>..\..\compiled\release\net45\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\compiled\release\4.5\dotnetaes.xml</DocumentationFile>
+    <DocumentationFile>..\..\compiled\release\net45\dotnetaes.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,8 +63,11 @@
     <Compile Include="..\..\lib\aes\core\variables.cs">
       <Link>aes\core\variables.cs</Link>
     </Compile>
-    <Compile Include="..\..\lib\aes\extensions\DataTables.cs">
-      <Link>aes\extensions\DataTables.cs</Link>
+    <Compile Include="..\..\lib\aes\extensions\DataTable\decryption.cs">
+      <Link>aes\extensions\DataTable\decryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\aes\extensions\DataTable\encryption.cs">
+      <Link>aes\extensions\DataTable\encryption.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

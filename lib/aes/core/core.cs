@@ -12,7 +12,11 @@ namespace DotNetAES
         //#######  Core Serialization And Deserialization Functions  #######
         //##################################################################
 
-        //This function serializes an object to byte array
+        /// <summary>
+        /// Serializes an object to byte array
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         private static byte[] SerializeToBytes(object data)
         {
             //Loads a memory stream
@@ -29,7 +33,12 @@ namespace DotNetAES
             }
         }
 
-        //This function deserialize a byte array to a specified type
+        /// <summary>
+        /// Deserialize a byte array to a specified type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
         private static T DerializeFromBytes<T>(byte[] data)
         {            
             //Checks if any data has been supplied
@@ -64,12 +73,18 @@ namespace DotNetAES
             return default(T);
         }
 
-        
+
         //##########################################################
         //#######  Core Encryption And Decryption Functions  #######
         //##########################################################
 
-        //This function encrypts a passed string into a byte array using AES CBC Mode
+        /// <summary>
+        /// Encrypts a passed string into a byte array using AES CBC Mode
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="key"></param>
+        /// <param name="IV"></param>
+        /// <returns></returns>
         private static byte[] Encrypt(byte[] data, byte[] key, byte[] IV)
         {
             //Validates the supplied data
@@ -112,8 +127,14 @@ namespace DotNetAES
             // Return the encrypted bytes
             return encrypted;
         }
-        
-        //This function decrypts a passed encrypted byte array using AES CBC Mode
+
+        /// <summary>
+        /// Decrypts a passed encrypted byte array using AES CBC Mode
+        /// </summary>
+        /// <param name="encryptedData"></param>
+        /// <param name="key"></param>
+        /// <param name="IV"></param>
+        /// <returns></returns>
         private static byte[] Decrypt(byte[] encryptedData, byte[] key, byte[] IV)
         {
             //Validates the supplied data

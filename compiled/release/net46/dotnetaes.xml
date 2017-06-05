@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dotnetaes</name>
+    </assembly>
+    <members>
+        <member name="M:DotNetAES.AES.SerializeToBytes(System.Object)">
+            <summary>
+            Serializes an object to byte array
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.DerializeFromBytes``1(System.Byte[])">
+            <summary>
+            Deserialize a byte array to a specified type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.Encrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Encrypts a passed string into a byte array using AES CBC Mode
+            </summary>
+            <param name="data"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.Decrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Decrypts a passed encrypted byte array using AES CBC Mode
+            </summary>
+            <param name="encryptedData"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.DecryptToType``1(System.Object,System.Object,System.Object)">
+            <summary>
+            Decrypts the data and returns it in a format which has been specified
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.SaveDecryptedFile(System.String,System.Byte[],System.Object,System.Object)">
+            <summary>
+            Decrypts a file and saves it to the specified path
+            </summary>
+            <param name="path"></param>
+            <param name="fileData"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.LoadDecryptedFile(System.String,System.Object,System.Object)">
+            <summary>
+            Loads a file from the specified path and decrypts it
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.EncryptToString(System.Object,System.Object,System.Object)">
+            <summary>
+            Encrypts the data specified and returns it in a base64 string format
+            </summary>
+            <param name="data"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.EncryptToBytes(System.Object,System.Object,System.Object)">
+            <summary>
+            Encrypts the data specified and returns it in a byte array format
+            </summary>
+            <param name="data"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.SaveEncryptedFile(System.String,System.Byte[],System.Object,System.Object)">
+            <summary>
+            Encrypts a file and saves it to the specified path
+            </summary>
+            <param name="path"></param>
+            <param name="fileData"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.LoadEncryptedFile(System.String,System.Object,System.Object)">
+            <summary>
+            Loads a file from the specified path and encrypts it
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.Decompress(System.Byte[])">
+            <summary>
+            Decompresses the supplied byte array from GZIP format
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.Compress(System.Byte[])">
+            <summary>
+            Compresses the supplied byte array in GZIP format
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.CreateStringIV">
+            <summary>
+            Generates an IV and returns it in base64 string format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.CreateByteIV">
+            <summary>
+            Generates an IV and returns it in a byte array format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.CreateStringKey">
+            <summary>
+            Generates a 256 key and returns it in base64 string format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.CreateByteKey">
+            <summary>
+            Generates a 256 key and returns it in a byte array format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.CoreValidation(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Validates the primary data required for the core encryption and decryption functions
+            </summary>
+            <param name="data"></param>
+            <param name="key"></param>
+            <param name="IV"></param>
+        </member>
+        <member name="M:DotNetAES.AES.EncryptedDataValidation(System.Object)">
+            <summary>
+            Validates the supplied encrypted data format for the decryption functions
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.KeyValidation(System.Object)">
+            <summary>
+            Validates the supplied key format for encryption and decryption functions
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.IVValidaton(System.Object)">
+            <summary>
+            Validates the supplied IV format for encryption and decryption functions
+            </summary>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="F:DotNetAES.AES.theKeySize">
+            <summary>
+            Stores the length of the key requirement
+            </summary>
+        </member>
+        <member name="F:DotNetAES.AES.cipherMode">
+            <summary>
+            Stores the ciphermode to use in AES: CBC
+            </summary>
+        </member>
+        <member name="M:DotNetAES.AES.AESDecrypt(System.Data.DataTable,System.String,System.Object)">
+            <summary>
+            Decrypts all the DataTable columns using the IV column and key supplied
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.AESDecryptIgnore(System.Data.DataTable,System.String,System.Object,System.String[])">
+            <summary>
+            Decrypts all the DataTable columns that are not in the ignore list
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <param name="ignoreColumns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.AESDecryptOnly(System.Data.DataTable,System.String,System.Object,System.String[])">
+            <summary>
+             Decrypts only the DataTable columns that are specified
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <param name="onlyColumns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.AESEncrypt(System.Data.DataTable,System.String,System.Object)">
+            <summary>
+            Encrypts all the DataTable columns using the IV column and key supplied
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.AESEncryptIgnore(System.Data.DataTable,System.String,System.Object,System.String[])">
+            <summary>
+            Encrypts all the DataTable columns that are not in the ignore list
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <param name="ignoreColumns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.AES.AESEncryptOnly(System.Data.DataTable,System.String,System.Object,System.String[])">
+            <summary>
+             Encrypts only the DataTable columns that are specified
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <param name="onlyColumns"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

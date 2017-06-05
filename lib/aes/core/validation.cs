@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Text;
 
 namespace DotNetAES
 {
@@ -9,8 +8,13 @@ namespace DotNetAES
         //######################################################
         //#######           Validation Functions         #######
         //######################################################
-
-        //This function is used in the core encryption and decryption functions to validate the data before continueing
+        
+        /// <summary>
+        /// Validates the primary data required for the core encryption and decryption functions
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="key"></param>
+        /// <param name="IV"></param>
         private static void CoreValidation(byte[] data, byte[] key, byte[] IV)
         {
             //Checks the validation of the supplied arguments
@@ -28,6 +32,11 @@ namespace DotNetAES
             }
         }
 
+        /// <summary>
+        /// Validates the supplied encrypted data format for the decryption functions
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         private static byte[] EncryptedDataValidation(object data)
         {
             byte[] encryptedData = null;
@@ -54,6 +63,11 @@ namespace DotNetAES
             return encryptedData;
         }
 
+        /// <summary>
+        /// Validates the supplied key format for encryption and decryption functions
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         private static byte[] KeyValidation(object key)
         {
             byte[] theKey = null;
@@ -80,6 +94,11 @@ namespace DotNetAES
             return theKey;
         }
 
+        /// <summary>
+        /// Validates the supplied IV format for encryption and decryption functions
+        /// </summary>
+        /// <param name="IV"></param>
+        /// <returns></returns>
         private static byte[] IVValidaton(object IV)
         {
             byte[] theIV = null;
@@ -104,7 +123,6 @@ namespace DotNetAES
                 throw new InvalidConstraintException("The IV has not been supplied.");
             }
             return theIV;
-        }
-        
+        }        
     }    
 }
