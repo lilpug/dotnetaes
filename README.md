@@ -69,7 +69,7 @@ byte[] encryptedBytes = AES.EncryptToBytes(exampleString, key, IV);
 
 
 ### SaveEncryptedFile
-This function encrypts some supplied data and then saves it in the specified location.
+This function encrypts some supplied data and then saves it at the specified location.
 
 Syntax
 ```C#
