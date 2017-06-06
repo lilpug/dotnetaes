@@ -2,6 +2,7 @@
 
 DotNetAES is an AES CBC .NET wrapper which makes it easy to encrypt data, objects and files, it also utilises GZIP internally to help keep the encrypted data size as small as it can be.
 
+[![NuGet](https://img.shields.io/nuget/v/DotNetSDB.svg?maxAge=3600)](https://www.nuget.org/packages/DotNetAES/)
 
 ## Security Information
 
