@@ -3,7 +3,7 @@ using System.IO.Compression;
 
 namespace DotNetAES
 {
-    public static partial class AES
+    public static partial class Tools
     {
         //##################################################################
         //#######    GZIP Compression And Decompression Functions    #######
@@ -14,7 +14,7 @@ namespace DotNetAES
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        private static byte[] Decompress(byte[] data)
+        public static byte[] GZIPDecompress(byte[] data)
         {
             //Opens a memorystream with the input data
             using (MemoryStream inputMS = new MemoryStream(data))
@@ -40,7 +40,7 @@ namespace DotNetAES
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        private static byte[] Compress(byte[] data)
+        public static byte[] GZIPCompress(byte[] data)
         {   
             //Opens a memorystream
             using (MemoryStream memoryStream = new MemoryStream())

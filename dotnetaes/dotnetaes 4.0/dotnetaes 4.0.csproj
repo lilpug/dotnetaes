@@ -42,6 +42,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\lib\aeshmac512\core\core.cs">
+      <Link>aeshmac512\core\core.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\aeshmac512\core\decrypt.cs">
+      <Link>aeshmac512\core\decrypt.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\aeshmac512\core\encrypt.cs">
+      <Link>aeshmac512\core\encrypt.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\aeshmac512\core\keys.cs">
+      <Link>aeshmac512\core\keys.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\aeshmac512\core\variables.cs">
+      <Link>aeshmac512\core\variables.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\aeshmac512\extensions\DataTable\decryption.cs">
+      <Link>aeshmac512\extensions\DataTable\decryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\aeshmac512\extensions\DataTable\encryption.cs">
+      <Link>aeshmac512\extensions\DataTable\encryption.cs</Link>
+    </Compile>
     <Compile Include="..\..\lib\aes\core\core.cs">
       <Link>aes\core\core.cs</Link>
     </Compile>
@@ -51,14 +72,8 @@
     <Compile Include="..\..\lib\aes\core\encrypt.cs">
       <Link>aes\core\encrypt.cs</Link>
     </Compile>
-    <Compile Include="..\..\lib\aes\core\gzip.cs">
-      <Link>aes\core\gzip.cs</Link>
-    </Compile>
     <Compile Include="..\..\lib\aes\core\keys.cs">
       <Link>aes\core\keys.cs</Link>
-    </Compile>
-    <Compile Include="..\..\lib\aes\core\validation.cs">
-      <Link>aes\core\validation.cs</Link>
     </Compile>
     <Compile Include="..\..\lib\aes\core\variables.cs">
       <Link>aes\core\variables.cs</Link>
@@ -68,6 +83,18 @@
     </Compile>
     <Compile Include="..\..\lib\aes\extensions\DataTable\encryption.cs">
       <Link>aes\extensions\DataTable\encryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\tools\gzip.cs">
+      <Link>tools\gzip.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\tools\Serialize.cs">
+      <Link>tools\Serialize.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\tools\timestamp.cs">
+      <Link>tools\timestamp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\tools\validation.cs">
+      <Link>tools\validation.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -20,15 +20,15 @@ namespace DotNetAES
         public static T DecryptToType<T>(object data, object key, object IV)
         {
             //Checks we have the valid data for decrypting
-            byte[] encryptedData = EncryptedDataValidation(data);
-            byte[] theKey = KeyValidation(key);
-            byte[] theIV = IVValidaton(IV);
+            byte[] encryptedData = Tools.EncryptedDataValidation(data);
+            byte[] theKey = Tools.KeyValidation(key);
+            byte[] theIV = Tools.IVValidaton(IV);
             
             //Decrypts the data and puts it into the variable
             byte[] decryptedData = Decrypt(encryptedData, theKey, theIV);
 
             //Returns the deserialised byte[] back into the object type it was originally
-            return DerializeFromBytes<T>(decryptedData);
+            return Tools.DerializeFromBytes<T>(decryptedData);
         }
 
         /// <summary>

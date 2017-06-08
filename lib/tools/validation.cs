@@ -3,19 +3,19 @@ using System.Data;
 
 namespace DotNetAES
 {
-    public static partial class AES
+    public static partial class Tools
     {
         //######################################################
         //#######           Validation Functions         #######
         //######################################################
         
         /// <summary>
-        /// Validates the primary data required for the core encryption and decryption functions
+        /// Validates the primary data required for the core AES encryption and decryption functions
         /// </summary>
         /// <param name="data"></param>
         /// <param name="key"></param>
         /// <param name="IV"></param>
-        private static void CoreValidation(byte[] data, byte[] key, byte[] IV)
+        public static void CoreValidation(byte[] data, byte[] key, byte[] IV)
         {
             //Checks the validation of the supplied arguments
             if (data == null || data.Length <= 0)
@@ -37,7 +37,7 @@ namespace DotNetAES
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        private static byte[] EncryptedDataValidation(object data)
+        public static byte[] EncryptedDataValidation(object data)
         {
             byte[] encryptedData = null;
             if (data != null)
@@ -53,7 +53,7 @@ namespace DotNetAES
                 }
                 else
                 {
-                    throw new InvalidCastException("The file format for the encrypted AES data can only be a string or byte[].");
+                    throw new InvalidCastException("The file format for the encrypted data can only be a string or byte[].");
                 }
             }
             else
@@ -68,7 +68,7 @@ namespace DotNetAES
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        private static byte[] KeyValidation(object key)
+        public static byte[] KeyValidation(object key)
         {
             byte[] theKey = null;
             if (key != null)
@@ -99,7 +99,7 @@ namespace DotNetAES
         /// </summary>
         /// <param name="IV"></param>
         /// <returns></returns>
-        private static byte[] IVValidaton(object IV)
+        public static byte[] IVValidaton(object IV)
         {
             byte[] theIV = null;
             if (IV != null)
@@ -123,6 +123,6 @@ namespace DotNetAES
                 throw new InvalidConstraintException("The IV has not been supplied.");
             }
             return theIV;
-        }        
-    }    
+        }
+    }
 }

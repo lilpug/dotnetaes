@@ -4,67 +4,70 @@ using System.Threading;
 
 namespace DotNetAES
 {
-    public static partial class AES
+    public static partial class AESHMAC512
     {
         //######################################################
         //#######           Encryption Functions         #######
         //######################################################
         
-        /// <summary>
+
+		/// <summary>
         /// Encrypts the data specified and returns it in a base64 string format
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="key"></param>
-        /// <param name="IV"></param>
+        /// <param name="cryptKey"></param>
+		/// <param name="authKey"></param>
         /// <returns></returns>
-        public static string EncryptToString(object data, object key, object IV)
+        public static string EncryptToString(object data, object cryptKey, object authKey)
         {
-            //Checks we have the valid data for encrypting            
-            byte[] theKey = Tools.KeyValidation(key);
-            byte[] theIV = Tools.IVValidaton(IV);
+            byte[] normalKey = Tools.KeyValidation(cryptKey);
+            byte[] authenticationKey = Tools.KeyValidation(authKey);
 
             //Serialises the data into a byte[]
             byte[] theData = Tools.SerializeToBytes(data);
 
             //Encrypts the serialised data
-            byte[] returnData = Encrypt(theData, theKey, theIV);
+            byte[] returnData = CoreEncrypt(theData, normalKey, authenticationKey);
 
             //Returns a base64 string as its an encrypted byte[]
             return Convert.ToBase64String(returnData);
         }
 
-        /// <summary>
+		/// <summary>
         /// Encrypts the data specified and returns it in a byte array format
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="key"></param>
-        /// <param name="IV"></param>
+        /// <param name="cryptKey"></param>
+        /// <param name="authKey"></param>
         /// <returns></returns>
-        public static byte[] EncryptToBytes(object data, object key, object IV)
+        public static byte[] EncryptToBytes(object data, object cryptKey, object authKey)
         {
-            //Checks we have the valid data for encrypting
-            byte[] theKey = Tools.KeyValidation(key);
-            byte[] theIV = Tools.IVValidaton(IV);
+            byte[] normalKey = Tools.KeyValidation(cryptKey);
+            byte[] authenticationKey = Tools.KeyValidation(authKey);
 
             //Serialises the data into a byte[]
             byte[] theData = Tools.SerializeToBytes(data);
 
-            //Encrypts the data and returns it as a byte[]
-            return Encrypt(theData, theKey, theIV);
+            //Encrypts the serialised data
+            byte[] returnData = CoreEncrypt(theData, normalKey, authenticationKey);
+
+            
+            return returnData;
         }
+
 
         /// <summary>
         /// Encrypts a file and saves it to the specified path
         /// </summary>
         /// <param name="path"></param>
         /// <param name="fileData"></param>
-        /// <param name="key"></param>
-        /// <param name="IV"></param>
+        /// <param name="cryptKey"></param>
+        /// <param name="authKey"></param>
         /// <returns></returns>
-        public static bool SaveEncryptedFile(string path, byte[] fileData, object key, object IV)
+        public static bool SaveEncryptedFile(string path, byte[] fileData, object cryptKey, object authKey)
         {
             //Encrypts the file data
-            byte[] encrypted = EncryptToBytes(fileData, key, IV);
+            byte[] encrypted = EncryptToBytes(fileData, cryptKey, authKey);
 
             int maxWait = 10000;
             int count = 0;
@@ -93,10 +96,10 @@ namespace DotNetAES
         /// Loads a file from the specified path and encrypts it
         /// </summary>
         /// <param name="path"></param>
-        /// <param name="key"></param>
-        /// <param name="IV"></param>
+        /// <param name="cryptKey"></param>
+        /// <param name="authKey"></param>
         /// <returns></returns>
-        public static byte[] LoadEncryptedFile(string path, object key, object IV)
+        public static byte[] LoadEncryptedFile(string path, object cryptKey, object authKey)
         {
             //Stores the file data when loaded
             byte[] file = null;
@@ -108,7 +111,7 @@ namespace DotNetAES
                 file = File.ReadAllBytes(path);
 
                 //Returns the encrypted file data
-                return EncryptToBytes(file, key, IV);
+                return EncryptToBytes(file, cryptKey, authKey);
             }
 
             return null;
