@@ -1,4 +1,5 @@
 ﻿using DotNetAES;
+using DotNetAES.Extensions;
 using System;
 using System.Data;
 using System.IO;

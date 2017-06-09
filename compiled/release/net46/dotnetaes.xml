@@ -210,9 +210,9 @@
             Stores the length of the IVs
             </summary>
         </member>
-        <member name="F:DotNetAES.AESHMAC512.timestampLength">
+        <member name="F:DotNetAES.AESHMAC512.timestampSize">
             <summary>
-            Timestamp length
+            Timestamp length (is a double not a string)
             </summary>
         </member>
         <member name="F:DotNetAES.AESHMAC512.cipherMode">
@@ -220,7 +220,7 @@
             Stores the ciphermode to use in AES: CBC
             </summary>
         </member>
-        <member name="M:DotNetAES.AESHMAC512.AESHMAC512Decrypt(System.Data.DataTable,System.Object,System.Object)">
+        <member name="M:DotNetAES.Extensions.AESHMAC512DataTableExtensions.AESHMAC512Decrypt(System.Data.DataTable,System.Object,System.Object)">
             <summary>
             Decrypts all the DataTable columns using the IV column and key supplied
             </summary>
@@ -229,7 +229,7 @@
             <param name="authKey"></param>
             <returns></returns>
         </member>
-        <member name="M:DotNetAES.AESHMAC512.AESHMAC512DecryptIgnore(System.Data.DataTable,System.Object,System.Object,System.String[])">
+        <member name="M:DotNetAES.Extensions.AESHMAC512DataTableExtensions.AESHMAC512DecryptIgnore(System.Data.DataTable,System.Object,System.Object,System.String[])">
             <summary>
             Decrypts all the DataTable columns that are not in the ignore list
             </summary>
@@ -239,7 +239,7 @@
             <param name="ignoreColumns"></param>
             <returns></returns>
         </member>
-        <member name="M:DotNetAES.AESHMAC512.AESHMAC512DecryptOnly(System.Data.DataTable,System.Object,System.Object,System.String[])">
+        <member name="M:DotNetAES.Extensions.AESHMAC512DataTableExtensions.AESHMAC512DecryptOnly(System.Data.DataTable,System.Object,System.Object,System.String[])">
             <summary>
              Decrypts only the DataTable columns that are specified
             </summary>
@@ -249,7 +249,7 @@
             <param name="onlyColumns"></param>
             <returns></returns>
         </member>
-        <member name="M:DotNetAES.AESHMAC512.AESHMAC512Encrypt(System.Data.DataTable,System.Object,System.Object)">
+        <member name="M:DotNetAES.Extensions.AESHMAC512DataTableExtensions.AESHMAC512Encrypt(System.Data.DataTable,System.Object,System.Object)">
             <summary>
             Encrypts all the DataTable columns using AES CBC HMAC SHA512
             </summary>
@@ -258,7 +258,7 @@
             <param name="authKey"></param>
             <returns></returns>
         </member>
-        <member name="M:DotNetAES.AESHMAC512.AESHMAC512EncryptIgnore(System.Data.DataTable,System.Object,System.Object,System.String[])">
+        <member name="M:DotNetAES.Extensions.AESHMAC512DataTableExtensions.AESHMAC512EncryptIgnore(System.Data.DataTable,System.Object,System.Object,System.String[])">
             <summary>
             Encrypts all the DataTable columns that are not in the ignore list
             </summary>
@@ -268,7 +268,7 @@
             <param name="ignoreColumns"></param>
             <returns></returns>
         </member>
-        <member name="M:DotNetAES.AESHMAC512.AESHMAC512EncryptOnly(System.Data.DataTable,System.Object,System.Object,System.String[])">
+        <member name="M:DotNetAES.Extensions.AESHMAC512DataTableExtensions.AESHMAC512EncryptOnly(System.Data.DataTable,System.Object,System.Object,System.String[])">
             <summary>
              Encrypts only the DataTable columns that are specified
             </summary>
@@ -277,6 +277,74 @@
             <param name="authKey"></param>
             <param name="onlyColumns"></param>
             <returns></returns>
+        </member>
+        <member name="T:DotNetAES.Extensions.AESDataTableExtensions">
+            <summary>
+            AES CBC DataTable extensions
+            </summary>
+        </member>
+        <member name="M:DotNetAES.Extensions.AESDataTableExtensions.AESDecrypt(System.Data.DataTable,System.String,System.Object)">
+            <summary>
+            Decrypts all the DataTable columns using the IV column and key supplied
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.Extensions.AESDataTableExtensions.AESDecryptIgnore(System.Data.DataTable,System.String,System.Object,System.String[])">
+            <summary>
+            Decrypts all the DataTable columns that are not in the ignore list
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <param name="ignoreColumns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.Extensions.AESDataTableExtensions.AESDecryptOnly(System.Data.DataTable,System.String,System.Object,System.String[])">
+            <summary>
+             Decrypts only the DataTable columns that are specified
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <param name="onlyColumns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.Extensions.AESDataTableExtensions.AESEncrypt(System.Data.DataTable,System.String,System.Object)">
+            <summary>
+            Encrypts all the DataTable columns using the IV column and key supplied
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.Extensions.AESDataTableExtensions.AESEncryptIgnore(System.Data.DataTable,System.String,System.Object,System.String[])">
+            <summary>
+            Encrypts all the DataTable columns that are not in the ignore list
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <param name="ignoreColumns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.Extensions.AESDataTableExtensions.AESEncryptOnly(System.Data.DataTable,System.String,System.Object,System.String[])">
+            <summary>
+             Encrypts only the DataTable columns that are specified
+            </summary>
+            <param name="data"></param>
+            <param name="ivColumnName"></param>
+            <param name="key"></param>
+            <param name="onlyColumns"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DotNetAES.AESHMAC512DataTableExtensions">
+            <summary>
+            AES CBC HMAC SHA512 DataTable extensions
+            </summary>
         </member>
         <member name="T:DotNetAES.AES">
             <summary>
@@ -401,63 +469,10 @@
             Stores the ciphermode to use in AES: CBC
             </summary>
         </member>
-        <member name="M:DotNetAES.AES.AESDecrypt(System.Data.DataTable,System.String,System.Object)">
+        <member name="T:DotNetAES.AESDataTableExtensions">
             <summary>
-            Decrypts all the DataTable columns using the IV column and key supplied
+            AES CBC DataTable extensions
             </summary>
-            <param name="data"></param>
-            <param name="ivColumnName"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:DotNetAES.AES.AESDecryptIgnore(System.Data.DataTable,System.String,System.Object,System.String[])">
-            <summary>
-            Decrypts all the DataTable columns that are not in the ignore list
-            </summary>
-            <param name="data"></param>
-            <param name="ivColumnName"></param>
-            <param name="key"></param>
-            <param name="ignoreColumns"></param>
-            <returns></returns>
-        </member>
-        <member name="M:DotNetAES.AES.AESDecryptOnly(System.Data.DataTable,System.String,System.Object,System.String[])">
-            <summary>
-             Decrypts only the DataTable columns that are specified
-            </summary>
-            <param name="data"></param>
-            <param name="ivColumnName"></param>
-            <param name="key"></param>
-            <param name="onlyColumns"></param>
-            <returns></returns>
-        </member>
-        <member name="M:DotNetAES.AES.AESEncrypt(System.Data.DataTable,System.String,System.Object)">
-            <summary>
-            Encrypts all the DataTable columns using the IV column and key supplied
-            </summary>
-            <param name="data"></param>
-            <param name="ivColumnName"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:DotNetAES.AES.AESEncryptIgnore(System.Data.DataTable,System.String,System.Object,System.String[])">
-            <summary>
-            Encrypts all the DataTable columns that are not in the ignore list
-            </summary>
-            <param name="data"></param>
-            <param name="ivColumnName"></param>
-            <param name="key"></param>
-            <param name="ignoreColumns"></param>
-            <returns></returns>
-        </member>
-        <member name="M:DotNetAES.AES.AESEncryptOnly(System.Data.DataTable,System.String,System.Object,System.String[])">
-            <summary>
-             Encrypts only the DataTable columns that are specified
-            </summary>
-            <param name="data"></param>
-            <param name="ivColumnName"></param>
-            <param name="key"></param>
-            <param name="onlyColumns"></param>
-            <returns></returns>
         </member>
         <member name="M:DotNetAES.Tools.GZIPDecompress(System.Byte[])">
             <summary>
@@ -486,6 +501,20 @@
             </summary>
             <typeparam name="T"></typeparam>
             <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.Tools.ConvertDoubleToByteArray(System.Double)">
+            <summary>
+            Converts a double into a byte arrau
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetAES.Tools.ConvertByteArrayToDouble(System.Byte[])">
+            <summary>
+            Converts a byte array into a double
+            </summary>
+            <param name="value"></param>
             <returns></returns>
         </member>
         <member name="M:DotNetAES.Tools.UnixTimeStampToDateTime(System.Double)">

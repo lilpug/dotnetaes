@@ -2,9 +2,9 @@
 using System.Data;
 using System.Linq;
 
-namespace DotNetAES
+namespace DotNetAES.Extensions
 {
-    public static partial class AESHMAC512
+    public static partial class AESHMAC512DataTableExtensions
     {
         //######################################################
         //#######           Encryption Functions         #######
@@ -46,7 +46,7 @@ namespace DotNetAES
                                 )
                         {
                             //Encrypts the data and puts it into the new rows column
-                            newRow[col.ColumnName] = EncryptToString(dr[col].ToString(), cryptKey,  authKey);
+                            newRow[col.ColumnName] = AESHMAC512.EncryptToString(dr[col].ToString(), cryptKey,  authKey);
                         }
                         else
                         {
@@ -116,7 +116,7 @@ namespace DotNetAES
                             )
                         {
                             //Encrypts the data and puts it into the new rows column
-                            newRow[col.ColumnName] = EncryptToString(dr[col].ToString(), cryptKey, authKey);
+                            newRow[col.ColumnName] = AESHMAC512.EncryptToString(dr[col].ToString(), cryptKey, authKey);
                         }
                         else
                         {
@@ -191,7 +191,7 @@ namespace DotNetAES
                             )
                         {
                             //Encrypts the data and puts it into the new rows column
-                            newRow[col.ColumnName] = EncryptToString(dr[col].ToString(), cryptKey, authKey);
+                            newRow[col.ColumnName] = AESHMAC512.EncryptToString(dr[col].ToString(), cryptKey, authKey);
                         }
                         else
                         {

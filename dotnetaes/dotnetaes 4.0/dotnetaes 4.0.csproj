@@ -63,6 +63,9 @@
     <Compile Include="..\..\lib\aeshmac512\extensions\DataTable\encryption.cs">
       <Link>aeshmac512\extensions\DataTable\encryption.cs</Link>
     </Compile>
+    <Compile Include="..\..\lib\aeshmac512\extensions\DataTable\variables.cs">
+      <Link>aeshmac512\extensions\DataTable\variables.cs</Link>
+    </Compile>
     <Compile Include="..\..\lib\aes\core\core.cs">
       <Link>aes\core\core.cs</Link>
     </Compile>
@@ -84,6 +87,9 @@
     <Compile Include="..\..\lib\aes\extensions\DataTable\encryption.cs">
       <Link>aes\extensions\DataTable\encryption.cs</Link>
     </Compile>
+    <Compile Include="..\..\lib\aes\extensions\DataTable\variables.cs">
+      <Link>aes\extensions\DataTable\variables.cs</Link>
+    </Compile>
     <Compile Include="..\..\lib\tools\gzip.cs">
       <Link>tools\gzip.cs</Link>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
     <Compile Include="..\..\lib\tools\validation.cs">
       <Link>tools\validation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\lib\tools\variables.cs">
+      <Link>tools\variables.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

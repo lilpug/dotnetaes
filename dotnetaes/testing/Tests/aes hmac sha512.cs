@@ -1,13 +1,59 @@
 ﻿using DotNetAES;
+using DotNetAES.Extensions;
 using System;
 using System.Data;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace testing
 {
     public static class AESHMAC512Testing
     {
+        /// <summary>
+        /// Checks the validation for the expiration settings on the HMAC
+        /// </summary>
+        /// <returns></returns>
+        public static bool ExpirationValidation()
+        {
+            //Generates the keys for testing purposes
+            string cryptKey = AESHMAC512.CreateStringAESKey();
+            string authKey = AESHMAC512.CreateStringAuthenticationKey();
+            
+            string testingString = "testing string";
+
+            //Checks if the expiration HMAC fails when its past a valid period of time
+            //Note: Makes it expire after 5 seconds and we use a thread sleep to wait 6 seconds.
+            bool failureCheck = false;
+            try
+            {
+                var enc = AESHMAC512.EncryptToString(testingString, cryptKey, authKey);
+                Thread.Sleep(6000);
+                var de = AESHMAC512.DecryptToType<string>(enc, cryptKey, authKey, 5);
+            }
+            catch
+            {
+                failureCheck = true;
+            }
+
+            //Checks if the expiration HMAC works correctly when within the range specified
+            //Note: Makes it expire after 60 seconds but only waits 6 so should be within range still.
+            bool successCheck = true;
+            try
+            {
+                var enc = AESHMAC512.EncryptToString(testingString, cryptKey, authKey);
+                Thread.Sleep(6000);
+                var de = AESHMAC512.DecryptToType<string>(enc, cryptKey, authKey, 60);
+            }
+            catch
+            {
+                successCheck = false;
+            }
+            
+            //Returns the results
+            return (failureCheck && successCheck);
+        }
+        
         /// <summary>
         /// Checks the validation of the file encryption and decryption funcctions
         /// </summary>
@@ -244,6 +290,9 @@ namespace testing
             Console.WriteLine($"Bytes Success: {StringByteEncryptionValidation()}");
             Console.WriteLine($"DataTables Success: {DataTableEncryptionValidation()}");
             Console.WriteLine($"Object Success: {ObjectEncryptionValidation()}");
+
+            Console.WriteLine($"HMAC Expiration Success: {ExpirationValidation()}");
+            
 
             Console.WriteLine("");
             Console.WriteLine("AES HMAC SHA512 testing ended...");

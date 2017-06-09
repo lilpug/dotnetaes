@@ -2,9 +2,12 @@
 using System.Data;
 using System.Linq;
 
-namespace DotNetAES
+namespace DotNetAES.Extensions
 {
-    public static partial class AES
+    /// <summary>
+    /// AES CBC DataTable extensions
+    /// </summary>
+    public static partial class AESDataTableExtensions
     {
         //######################################################
         //#######           Decryption Functions         #######
@@ -57,7 +60,7 @@ namespace DotNetAES
                            )
                         {
                             //Decrypts the data and puts it into the new rows column
-                            newRow[col.ColumnName] = DecryptToType<string>(dr[col], key, dr[ivColumnName]);
+                            newRow[col.ColumnName] = AES.DecryptToType<string>(dr[col], key, dr[ivColumnName]);
                         }
                         else
                         {
@@ -137,7 +140,7 @@ namespace DotNetAES
                            )
                         {
                             //Decrypts the data and puts it into the new rows column
-                            newRow[col.ColumnName] = DecryptToType<string>(dr[col], key, dr[ivColumnName]);
+                            newRow[col.ColumnName] = AES.DecryptToType<string>(dr[col], key, dr[ivColumnName]);
                         }
                         else
                         {
@@ -218,7 +221,7 @@ namespace DotNetAES
                            )
                         {
                             //Decrypts the data and puts it into the new rows column
-                            newRow[col.ColumnName] = DecryptToType<string>(dr[col], key, dr[ivColumnName]);
+                            newRow[col.ColumnName] = AES.DecryptToType<string>(dr[col], key, dr[ivColumnName]);
                         }
                         else
                         {

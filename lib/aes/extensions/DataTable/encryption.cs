@@ -2,9 +2,9 @@
 using System.Data;
 using System.Linq;
 
-namespace DotNetAES
+namespace DotNetAES.Extensions
 {
-    public static partial class AES
+    public static partial class AESDataTableExtensions
     {
         //######################################################
         //#######           Encryption Functions         #######
@@ -42,7 +42,7 @@ namespace DotNetAES
                 foreach (DataRow dr in data.Rows)
                 {
                     //Creates the IV for that particular rows encryption method
-                    var iv = CreateStringIV();
+                    var iv = AES.CreateStringIV();
 
                     //Creates a new empty row ready for populating the encrypted values
                     DataRow newRow = newDT.NewRow();
@@ -62,7 +62,7 @@ namespace DotNetAES
                                 )
                         {
                             //Encrypts the data and puts it into the new rows column
-                            newRow[col.ColumnName] = EncryptToString(dr[col].ToString(), key, iv);
+                            newRow[col.ColumnName] = AES.EncryptToString(dr[col].ToString(), key, iv);
                         }
                         else
                         {
@@ -123,7 +123,7 @@ namespace DotNetAES
                 foreach (DataRow dr in data.Rows)
                 {
                     //Creates the IV for that particular rows encryption method
-                    var iv = CreateStringIV();
+                    var iv = AES.CreateStringIV();
 
                     //Creates a new empty row ready for populating the encrypted values
                     DataRow newRow = newDT.NewRow();
@@ -148,7 +148,7 @@ namespace DotNetAES
                                 )
                         {
                             //Encrypts the data and puts it into the new rows column
-                            newRow[col.ColumnName] = EncryptToString(dr[col].ToString(), key, iv);
+                            newRow[col.ColumnName] = AES.EncryptToString(dr[col].ToString(), key, iv);
                         }
                         else
                         {
@@ -216,7 +216,7 @@ namespace DotNetAES
                 foreach (DataRow dr in data.Rows)
                 {
                     //Creates the IV for that particular rows encryption method
-                    var iv = CreateStringIV();
+                    var iv = AES.CreateStringIV();
 
                     //Creates a new empty row ready for populating the encrypted values
                     DataRow newRow = newDT.NewRow();
@@ -239,7 +239,7 @@ namespace DotNetAES
                                 )
                         {
                             //Encrypts the data and puts it into the new rows column
-                            newRow[col.ColumnName] = EncryptToString(dr[col].ToString(), key, iv);
+                            newRow[col.ColumnName] = AES.EncryptToString(dr[col].ToString(), key, iv);
                         }
                         else
                         {
