@@ -4,6 +4,8 @@ DotNetAES is an AES CBC & AES CBC HMAC SHA512 .NET Standard wrapper which makes 
 
 [![NuGet](https://img.shields.io/nuget/v/DotNetAES.svg?maxAge=3600)](https://www.nuget.org/packages/DotNetAES/)
 
+[![NuGet](https://img.shields.io/nuget/v/DotNetAES.Extensions.svg?maxAge=3600)](https://www.nuget.org/packages/DotNetAES.Extensions/)
+
 
 ## Documentation links
 
