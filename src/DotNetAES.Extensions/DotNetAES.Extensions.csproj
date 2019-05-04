@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>David Whitehead</Authors>
+    <Company></Company>
+    <Copyright>MIT Copyright (c) 2019 David Whitehead</Copyright>
+    <PackageProjectUrl>https://github.com/lilpug/dotnetaes</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lilpug/dotnetaes</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\Compiled\Debug\Extensions</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Compiled\Release\Extensions</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetAES\DotNetAES.csproj" />
+  </ItemGroup>
+
+</Project>

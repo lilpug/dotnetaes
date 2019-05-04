@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.2</Version>
+    <Authors>David Whitehead</Authors>
+    <Company />
+    <Description>DotNetAES is an AES CBC &amp; AES CBC HMAC SHA512 .NET Standard wrapper which makes it easy to encrypt data and objects.</Description>
+    <Copyright>MIT Copyright (c) 2017 David Whitehead</Copyright>
+    <PackageProjectUrl>https://github.com/lilpug/dotnetaes</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lilpug/dotnetaes</RepositoryUrl>
+    <PackageReleaseNotes>Converted the project to .NET Standard for use with both the .NET Framework and .NET Core.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\Compiled\Debug\DotNetAES</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Compiled\Release\DotNetAES</OutputPath>
+  </PropertyGroup>
+
+</Project>
