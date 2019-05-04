@@ -7,6 +7,7 @@
     <Copyright>MIT Copyright (c) 2019 David Whitehead</Copyright>
     <PackageProjectUrl>https://github.com/lilpug/dotnetaes</PackageProjectUrl>
     <RepositoryUrl>https://github.com/lilpug/dotnetaes</RepositoryUrl>
+	<Description>This library adds extension methods to use the DotNetAES functionality on datatables.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
